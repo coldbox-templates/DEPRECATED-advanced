@@ -100,6 +100,12 @@
 		];
 
 		/*
+		// module setting overrides
+		moduleSettings = {
+			moduleName = {
+				settingName = "overrideValue"
+			}
+		};
 
 		// flash scope configuration
 		flash = {
