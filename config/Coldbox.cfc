@@ -26,7 +26,7 @@
 			//Extension Points
 			applicationHelper 			= "includes/helpers/ApplicationHelper.cfm",
 			viewsHelper					= "",
-			modulesExternalLocation		= [ "modules_app" ],
+			modulesExternalLocation		= [],
 			viewsExternalLocation		= "",
 			layoutsExternalLocation 	= "",
 			handlersExternalLocation  	= "",
@@ -94,8 +94,9 @@
 		//Register interceptors as an array, we need order
 		interceptors = [
 			//SES
-			{class="coldbox.system.interceptors.SES",
-			 properties={}
+			{
+				class="coldbox.system.interceptors.SES",
+			 	properties={}
 			}
 		];
 
