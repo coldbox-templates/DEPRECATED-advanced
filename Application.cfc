@@ -19,11 +19,13 @@ component{
 	// COLDBOX APPLICATION KEY OVERRIDE
 	COLDBOX_APP_KEY 		 = "";
 
+	variables.util = new coldbox.system.core.util.Util();
+
 	// Java Integration
-	this.javaSettings = { 
-		loadPaths 					= [ ".\lib" ], 
-		loadColdFusionClassPath 	= true, 
-		reloadOnChange 				= false 
+	this.javaSettings = {
+		loadPaths 					= [ ".\lib" ],
+		loadColdFusionClassPath 	= true,
+		reloadOnChange 				= false
 	};
 
 	// application start
