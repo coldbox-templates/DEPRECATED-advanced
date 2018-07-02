@@ -3,8 +3,5 @@
         "rewrites":{
             "enable":"true"
         }
-    },
-    "app":{
-        "cfengine":"adobe@2016"
     }
 }
