@@ -1,87 +1,52 @@
-﻿<cfcomponent output="false" extends="coldbox.system.EventHandler">
+﻿component output="false" extends="coldbox.system.EventHandler" {
+	//  Default Action 
 
-	<!--- Default Action --->
-	<cffunction name="index" returntype="void" output="false" hint="My main event">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
+	/**
+	 * My main event
+	 */
+	public void function index(event, rc, prc) output=false {
+		prc.welcomeMessage = "Welcome to ColdBox!";
+		event.setView("main/index");
+	}
+	//  Do Something Action 
 
-		<cfset prc.welcomeMessage = "Welcome to ColdBox!">
-		<cfset event.setView("main/index")>
-	</cffunction>
+	/**
+	 * Do Something
+	 */
+	public void function doSomething(event, rc, prc) output=false {
+		relocate( "main.index" );
+	}
+	// ---------------------------------------- GLOBAL IMPLICIT EVENTS ONLY ---------------------------------------
+	//  In order for these events to fire, you must declare them in the ColdBox.cfc 
 
-	<!--- Do Something Action --->
-	<cffunction name="doSomething" returntype="void" output="false" hint="Do Something">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
+	public void function onAppInit(event, rc, prc) output=false {
+	}
 
-		<cfset relocate( "main.index" )>
-	</cffunction>
+	public void function onRequestStart(event, rc, prc) output=false {
+	}
 
-<!------------------------------------------- GLOBAL IMPLICIT EVENTS ONLY ------------------------------------------>
-<!--- In order for these events to fire, you must declare them in the ColdBox.cfc --->
+	public void function onRequestEnd(event, rc, prc) output=false {
+	}
 
-	<cffunction name="onAppInit" returntype="void" output="false">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
+	public void function onSessionStart(event, rc, prc) output=false {
+	}
 
-	</cffunction>
+	public void function onSessionEnd(event, rc, prc) output=false {
+		var sessionScope = event.getValue("sessionReference");
+		var applicationScope = event.getValue("applicationReference");
+	}
 
-	<cffunction name="onRequestStart" returntype="void" output="false">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
+	public void function onException(event, rc, prc) output=false {
 
-	</cffunction>
-
-	<cffunction name="onRequestEnd" returntype="void" output="false">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
-
-	</cffunction>
-
-	<cffunction name="onSessionStart" returntype="void" output="false">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
-
-	</cffunction>
-
-	<cffunction name="onSessionEnd" returntype="void" output="false">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
-
-		<cfset var sessionScope = event.getValue("sessionReference")>
-		<cfset var applicationScope = event.getValue("applicationReference")>
-
-	</cffunction>
-
-	<cffunction name="onException" returntype="void" output="false">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
-
-		<cfscript>
-			//Grab Exception From private request collection, placed by ColdBox Exception Handling
+		//Grab Exception From private request collection, placed by ColdBox Exception Handling
 			var exception = prc.exception;
 			//Place exception handler below:
+	}
 
-		</cfscript>
-	</cffunction>
+	public void function onMissingTemplate(event, rc, prc) output=false {
 
-	<cffunction name="onMissingTemplate" returntype="void" output="false">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
-		<cfscript>
-			//Grab missingTemplate From request collection, placed by ColdBox
+		//Grab missingTemplate From request collection, placed by ColdBox
 			var missingTemplate = event.getValue("missingTemplate");
+	}
 
-		</cfscript>
-	</cffunction>
-
-</cfcomponent>
+}
