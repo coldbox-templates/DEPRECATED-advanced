@@ -1,8 +1,8 @@
 {
     "name":"Advanced APP Template",
-    "version":"1.27.0",
+    "version":"1.27.1",
     "author":"You",
-    "location":"https://github.com/coldbox-templates/advanced/archive/v1.27.0.zip",
+    "location":"https://github.com/coldbox-templates/advanced/archive/v1.27.1.zip",
     "slug":"cbtemplate-advanced",
     "createPackageDirectory":false,
     "type":"mvc",
