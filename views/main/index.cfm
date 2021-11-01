@@ -91,7 +91,7 @@
 							<em>resources</em>
 						</td>
 						<td>
-							Test resources like fixtures, itegrations, etc.
+							Test resources like fixtures, integrations, etc.
 						</td>
 					</tr>
 					<tr>
